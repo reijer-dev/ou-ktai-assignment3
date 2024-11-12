@@ -653,8 +653,9 @@ class LunarLanderCustom(gym.Env, EzPickle):
         assert len(state) == 8
 
         reward = 0
+        x_from_helipad = state[0] - 0.2
         shaping = (
-            -100 * np.sqrt(state[0] * state[0] + state[1] * state[1])
+            -100 * np.sqrt(x_from_helipad * x_from_helipad + state[1] * state[1])
             - 100 * np.sqrt(state[2] * state[2] + state[3] * state[3])
             - 100 * abs(state[4])
             + 10 * state[6]
