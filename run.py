@@ -1,3 +1,14 @@
+import subprocess
+import sys
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+install("cleanrl tyro wandb")
+install("swig")
+install("gymnasium[box2d]==0.29.1")
+install("gymnasium[accept-rom-license]")
+
 #Train from scratch (None) or from an existing model?
 model_name = None
 
